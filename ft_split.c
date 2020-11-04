@@ -6,7 +6,7 @@
 /*   By: sujeon <sujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 23:08:02 by sujeon            #+#    #+#             */
-/*   Updated: 2020/11/04 11:00:17 by sujeon           ###   ########.fr       */
+/*   Updated: 2020/11/04 23:28:13 by sujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,11 @@ char	**put_value(char **str, char *src, char c)
 		else
 		{
 			len = cnt_len(src + total, c);
-			if (!(str[idx] = (char *)malloc(sizeof(char *) * len)))
+			if (!(str[idx] = ft_substr(src, total, len)))
 			{
 				free_str(str, idx);
 				return (NULL);
 			}
-			str[idx] = ft_substr(src, total, len);
 			total += len;
 			idx++;
 		}
@@ -90,16 +89,10 @@ char	**ft_split(char const *s, char c)
 {
 	char	**str;
 	char	*cpy_s;
-	int		idx;
-	size_t	cnt;
 
-	idx = 0;
-	cnt = 0;
 	if (!s)
 		return (NULL);
-	if (!(cpy_s = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1))))
-		return (NULL);
-	ft_strlcpy(cpy_s, s, ft_strlen(s) + 1);
+	cpy_s = ft_strdup(s);
 	if (!(str = (char **)malloc(sizeof(char *) * (cnt_str(cpy_s, c) + 1))))
 		return (NULL);
 	put_value(str, cpy_s, c);

@@ -6,11 +6,12 @@
 /*   By: sujeon <sujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 18:13:59 by sujeon            #+#    #+#             */
-/*   Updated: 2020/11/03 14:38:04 by sujeon           ###   ########.fr       */
+/*   Updated: 2020/11/04 23:48:01 by sujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 int		search_begin(char *str, char const *set)
 {
@@ -32,7 +33,7 @@ int		search_begin(char *str, char const *set)
 			}
 			idx2++;
 		}
-		if (idx2 == (int)ft_strlen(set))
+		if (!set[idx2])
 			break ;
 		idx1++;
 	}
@@ -47,7 +48,7 @@ int		search_end(char *str, char const *set)
 
 	end = ft_strlen(str) - 1;
 	cnt = 0;
-	while (end)
+	while (end >= 0)
 	{
 		idx = 0;
 		while (set[idx])
@@ -59,7 +60,7 @@ int		search_end(char *str, char const *set)
 			}
 			idx++;
 		}
-		if (idx == (int)ft_strlen(set))
+		if (!set[idx])
 			break ;
 		end--;
 	}
@@ -74,14 +75,18 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	if (!s1 || !set)
 		return (NULL);
-	if (!(str_trim = (char *)malloc(sizeof(char) * (ft_strlen(s1) + 1))))
-		return (0);
-	ft_strlcpy(str_trim, s1, ft_strlen(s1) + 1);
+	str_trim = ft_strdup(s1);
 	cnt_b = search_begin(str_trim, set);
 	if (cnt_b == (int)ft_strlen(s1))
-		return ("");
-	cnt_e = search_end(str_trim, set);
+		return (ft_strdup(""));
+	cnt_e = search_end(str_trim + cnt_b, set);
 	str_trim = ft_substr(str_trim, cnt_b,
 			ft_strlen(str_trim) - (cnt_b + cnt_e));
 	return (str_trim);
+}
+
+int main()
+{
+	char str[] = "ababcabcabab";
+	printf("%s\n", ft_strtrim(str, "ab"));
 }
