@@ -6,7 +6,7 @@
 /*   By: sujeon <sujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 23:08:02 by sujeon            #+#    #+#             */
-/*   Updated: 2020/11/05 14:11:48 by sujeon           ###   ########.fr       */
+/*   Updated: 2020/11/05 15:38:25 by sujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ char	**put_value(char **str, char *src, char c)
 			len = cnt_len(src + total, c);
 			if (!(str[idx] = ft_substr(src, total, len)))
 			{
-				free_str(str, idx);
+				free_str(str, idx - 1);
 				return (NULL);
 			}
 			total += len;

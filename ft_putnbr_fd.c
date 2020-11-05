@@ -6,7 +6,7 @@
 /*   By: sujeon <sujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 22:07:21 by sujeon            #+#    #+#             */
-/*   Updated: 2020/11/05 13:27:49 by sujeon           ###   ########.fr       */
+/*   Updated: 2020/11/05 15:41:37 by sujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,4 @@ void	ft_putnbr_fd(int n, int fd)
 			ft_putchar_fd((n % 10) + '0', fd);
 		}
 	}
-}
-
-int main()
-{
-	int fd;
-
-	fd = open("a", O_WRONLY);
-
-	ft_putnbr_fd(42, fd);
 }
