@@ -6,12 +6,11 @@
 /*   By: sujeon <sujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 18:13:59 by sujeon            #+#    #+#             */
-/*   Updated: 2020/11/04 23:48:01 by sujeon           ###   ########.fr       */
+/*   Updated: 2020/11/05 12:19:15 by sujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 int		search_begin(char *str, char const *set)
 {
@@ -69,24 +68,22 @@ int		search_end(char *str, char const *set)
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*str_trim;
+	char	*cpy_s1;
+	char	*trim;
 	int		cnt_b;
 	int		cnt_e;
+	int		total;
 
 	if (!s1 || !set)
 		return (NULL);
-	str_trim = ft_strdup(s1);
-	cnt_b = search_begin(str_trim, set);
+	if (!(cpy_s1 = ft_strdup(s1)))
+		return (NULL);
+	cnt_b = search_begin(cpy_s1, set);
 	if (cnt_b == (int)ft_strlen(s1))
 		return (ft_strdup(""));
-	cnt_e = search_end(str_trim + cnt_b, set);
-	str_trim = ft_substr(str_trim, cnt_b,
-			ft_strlen(str_trim) - (cnt_b + cnt_e));
-	return (str_trim);
-}
-
-int main()
-{
-	char str[] = "ababcabcabab";
-	printf("%s\n", ft_strtrim(str, "ab"));
+	cnt_e = search_end(cpy_s1 + cnt_b, set);
+	total = cnt_b + cnt_e;
+	if (!(trim = ft_substr(cpy_s1, cnt_b, ft_strlen(cpy_s1) - total)))
+		return (NULL);
+	return (trim);
 }

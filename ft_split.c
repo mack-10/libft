@@ -6,7 +6,7 @@
 /*   By: sujeon <sujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 23:08:02 by sujeon            #+#    #+#             */
-/*   Updated: 2020/11/04 23:28:13 by sujeon           ###   ########.fr       */
+/*   Updated: 2020/11/05 14:11:48 by sujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,17 @@ char	**ft_split(char const *s, char c)
 	char	**str;
 	char	*cpy_s;
 
-	if (!s)
+	if (!s || !c)
 		return (NULL);
-	cpy_s = ft_strdup(s);
+	if (!ft_strncmp(s, "", 1))
+	{
+		if (!(str = (char **)malloc(sizeof(char *) * 1)))
+			return (NULL);
+		str[0] = 0;
+		return (str);
+	}
+	if (!(cpy_s = (char *)s))
+		return (NULL);
 	if (!(str = (char **)malloc(sizeof(char *) * (cnt_str(cpy_s, c) + 1))))
 		return (NULL);
 	put_value(str, cpy_s, c);

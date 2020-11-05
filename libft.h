@@ -6,7 +6,7 @@
 /*   By: sujeon <sujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/06 00:33:34 by sujeon            #+#    #+#             */
-/*   Updated: 2020/11/04 10:01:47 by sujeon           ###   ########.fr       */
+/*   Updated: 2020/11/04 11:51:51 by sujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <limits.h>
 
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t n);
