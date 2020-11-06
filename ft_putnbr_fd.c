@@ -6,12 +6,11 @@
 /*   By: sujeon <sujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 22:07:21 by sujeon            #+#    #+#             */
-/*   Updated: 2020/11/05 15:41:37 by sujeon           ###   ########.fr       */
+/*   Updated: 2020/11/06 11:49:12 by sujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <fcntl.h>
 
 void	ft_putnbr_fd(int n, int fd)
 {
