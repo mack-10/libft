@@ -6,7 +6,7 @@
 /*   By: sujeon <sujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/06 23:18:33 by sujeon            #+#    #+#             */
-/*   Updated: 2020/11/02 10:37:46 by sujeon           ###   ########.fr       */
+/*   Updated: 2020/11/08 16:48:30 by sujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,11 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 		dst[idx1 + idx2] = src[idx2];
 		idx2++;
 	}
-	dst[idx1 + idx2] = 0;
 	if (dst_len > size)
 		return (src_len + size);
 	else
+	{
+		dst[idx1 + idx2] = 0;
 		return (src_len + dst_len);
+	}
 }

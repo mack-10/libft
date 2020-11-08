@@ -6,7 +6,7 @@
 /*   By: sujeon <sujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 18:13:59 by sujeon            #+#    #+#             */
-/*   Updated: 2020/11/05 12:19:15 by sujeon           ###   ########.fr       */
+/*   Updated: 2020/11/08 15:53:12 by sujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	if (!s1 || !set)
 		return (NULL);
-	if (!(cpy_s1 = ft_strdup(s1)))
-		return (NULL);
+	cpy_s1 = (char *)s1;
 	cnt_b = search_begin(cpy_s1, set);
 	if (cnt_b == (int)ft_strlen(s1))
 		return (ft_strdup(""));

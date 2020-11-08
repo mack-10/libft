@@ -6,7 +6,7 @@
 /*   By: sujeon <sujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 23:08:02 by sujeon            #+#    #+#             */
-/*   Updated: 2020/11/05 15:38:25 by sujeon           ###   ########.fr       */
+/*   Updated: 2020/11/08 16:29:37 by sujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ int		cnt_str(char *str, char c)
 	{
 		if (str[idx] == c && str[idx + 1] == c)
 			;
-		else if (str[idx])
+		else if (str[idx] == c)
 			cnt++;
 		idx++;
 	}
-	if (str[idx - 1] != c)
+	if (idx - 1 >= 0 && str[idx - 1] != c)
 		cnt++;
 	return (cnt);
 }
